@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        #markdown-output h1, #markdown-output h2, #markdown-output h3 {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown to HTML Converter</h1>
+    <div id="markdown-output"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        const markdownText = "Hello world!\n\nThis is a test markdown file.";
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const markdownOutput = document.getElementById('markdown-output');
+            markdownOutput.innerHTML = marked.parse(markdownText);
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+</html>
